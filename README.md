@@ -1,25 +1,60 @@
-# Sci Chicken
+搭建加速器
 
-A PUBG pcap playback system that does not hog CPU/GPU, works with version 3.7.33
+wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
 
-## Sniff
+chmod +x shadowsocks-all.sh
 
-You need an extra linux（centos 7 x64） server to be the man in the middle
+./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 
-Server running command：
-```bash
-yum install git;git clone https://github.com/yueyun2018/PUBG-Radar-Onekey.git; chmod +x . /root/PUBG-Radar-Onekey/update.sh;. /root/PUBG-Radar-Onekey/update.sh
-```
 
-## Translation
+设置SSTap进行加速
 
-回车后开始安装  Enter after installation
+##安装nodejs和npm
 
-记住了吗？任意键继续  Remember? Any key continues
+curl https://raw.githubusercontent.com/creationix/nvm/v0.13.1/install.sh | bash
 
-请输入你的内网ip   Please enter your private Network ip
+source ~/.bash_profile
 
-搭建完成 Build up
+nvm install v9.8.0
+
+nvm alias default v9.8.0
+
+安装libpcap
+
+yum -y install gcc-c++
+
+yum -y install flex
+
+yum -y install bison
+
+wget http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz
+
+tar -zxvf libpcap-1.8.1.tar.gz
+
+cd libpcap-1.8.1
+
+./configure
+
+make
+
+make install
+
+安装部署项目
+
+yum install git
+
+git clone git://github.com/yueyun2018/PUBG-Radar-Onekey
+
+cd PUBG-Radar-Onekey/
+
+npm i
+
+npm i -g pino
+
+npm install -g forever
+ 
+forever start index.js sniff eth0 127.0.0.1 | pino
+
 
 
 ## Link
