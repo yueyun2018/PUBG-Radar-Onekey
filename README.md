@@ -57,6 +57,7 @@ npm install -g forever
 forever start index.js sniff eth0 127.0.0.1 | pino
 
 ```
+这里127.0.0.1修改为你的服务器内网ip
 
 ## Link
 
