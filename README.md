@@ -1,6 +1,6 @@
 ## 一键安装部署项目
 ```bash
-yum install git;git clone https://github.com/234150476/PUBG-Cloud-Radar.git; chmod +x . /root/PUBG-Cloud-Radar/update.sh;. /root/PUBG-Cloud-Radar/update.sh
+yum install git;git clone https://github.com/yueyun2018/PUBG-Radar-Onekey.git; chmod +x . /root/PUBG-Cloud-Radar/update.sh;. /root/PUBG-Cloud-Radar/update.sh
 ```
 
 ## Link
